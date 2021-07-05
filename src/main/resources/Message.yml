@@ -1,0 +1,9 @@
+ADMIN:
+  NO_PERMISSION_CMD: '[PluginTemp] &c你没有权限执行此指令'
+  NO_CMD: '[PluginTemp] &c未找到此子指令:{0}'
+  NO_FORMAT: '[PluginTemp] &c格式错误!'
+  NO_ONLINE: '[PluginTemp] &c玩家不在线或玩家不存在!'
+  NO_CONSOLE: '[PluginTemp] &c控制台不允许执行此指令!'
+  PLUGIN_RELOAD: '[PluginTemp] §c插件已重载'
+COMMAND:
+  RELOAD: 重新加载这个插件的配置

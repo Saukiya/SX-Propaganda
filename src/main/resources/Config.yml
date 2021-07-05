@@ -1,0 +1,24 @@
+ggp1:
+  world: foxcraft
+  x: [17, 26]
+  y: [64, 65]
+  z: [6, 6]
+  face: NORTH
+ggp2:
+  world: foxcraft
+  x: [40, 49]
+  y: [64, 65]
+  z: [6, 6]
+  face: NORTH
+ggp3:
+  world: foxcraft
+  x: [17, 26]
+  y: [64, 65]
+  z: [-5, -5]
+  face: SOUTH
+ggp4:
+  world: foxcraft
+  x: [40, 49]
+  y: [64, 65]
+  z: [-5, -5]
+  face: SOUTH

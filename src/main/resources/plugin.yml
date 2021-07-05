@@ -1,0 +1,20 @@
+name: SX-Propaganda
+main: github.saukiya.propaganda.Propaganda
+version: 1.0.0
+author: Saukiya
+api-version: 1.13
+
+softdepend:
+- Multiverse-Core
+- PlotSquared
+- Residence
+- PlaceholderAPI
+- Vault
+
+commands:
+  sxpropaganda:
+    aliases: [sp, sxp]
+
+permissions:
+  sx-propaganda.use:
+    default: true
