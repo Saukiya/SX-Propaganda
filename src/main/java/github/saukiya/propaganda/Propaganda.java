@@ -8,6 +8,7 @@ import github.saukiya.propaganda.util.Message;
 import github.saukiya.propaganda.util.MoneyUtil;
 import github.saukiya.propaganda.util.PlaceholdersUtil;
 import lombok.Getter;
+import org.bstats.bukkit.Metrics;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.HumanEntity;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -32,6 +33,7 @@ public class Propaganda extends JavaPlugin {
     }
 
     public void onEnable() {
+        Metrics metrics = new Metrics(this, 12019);
         long oldTimes = System.currentTimeMillis();
         String version = Bukkit.getBukkitVersion().split("-")[0];
         this.getLogger().info("ServerVersion: " + version);
