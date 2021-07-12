@@ -1,8 +1,8 @@
 name: SX-Propaganda
 main: github.saukiya.propaganda.Propaganda
-version: 1.0.0
+version: $version
 author: Saukiya
-api-version: ${version}
+api-version: 1.17
 
 softdepend:
 - Multiverse-Core

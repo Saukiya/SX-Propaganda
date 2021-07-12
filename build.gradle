@@ -1,31 +1,49 @@
 plugins {
     id 'java'
+    id "com.github.johnrengelman.shadow" version "7.0.0"
 }
 
 group 'github.saukiya'
 version '1.0-SNAPSHOT'
 
 repositories {
-    maven {url "https://maven.aliyun.com/nexus/content/groups/public/"}
-    //bukkit spigot-api
-    maven {url "https://hub.spigotmc.org/nexus/content/groups/public/"}
-    //VaultAPI
-    maven {url "https://jitpack.io"}
-    //bstats-bukkit
-    maven {url "https://repo.codemc.org/repository/maven-public"}
-
-    maven {url "https://maven.enginehub.org/repo/"}
-    maven {url "https://oss.sonatype.org/content/repositories/snapshots/"}
-    maven {url "https://mvn.intellectualsites.com/content/groups/public/"}
     mavenCentral()
+
+    // Github Project
+    maven {url "https://jitpack.io"}
+    // Bukkit spigot-api
+    maven {url "https://hub.spigotmc.org/nexus/content/groups/public/"}
+    // Aliyun SDK
+    maven {url "https://maven.aliyun.com/nexus/content/groups/public/"}
+    // bstats-bukkit
+    maven {url "https://repo.codemc.org/repository/maven-public"}
+    // PlotSquared
+    maven {url "https://mvn.intellectualsites.com/content/groups/public/"}
+    // WorldEdit
+    maven {url "https://maven.enginehub.org/repo/"}
+    // Multiverse-Core
+    maven {url "https://repo.onarandombox.com/content/repositories/multiverse/"}
 }
 
 dependencies {
-    implementation fileTree('lib')
-    implementation 'org.spigotmc:spigot-api:1.17-R0.1-SNAPSHOT'
-    implementation 'com.github.MilkBowl:VaultAPI:1.+'
-    implementation 'com.plotsquared:PlotSquared-Core:6.0.6-SNAPSHOT'
-    implementation 'com.github.PlaceholderAPI:PlaceholderAPI:2.10.9'
-    implementation 'org.projectlombok:lombok:1.18.20'
+    compileOnly fileTree('lib')
+    compileOnly 'org.spigotmc:spigot-api:1.17-R0.1-SNAPSHOT'
+    compileOnly 'com.github.MilkBowl:VaultAPI:1.+'
+    compileOnly 'com.github.PlaceholderAPI:PlaceholderAPI:2.10.9'
+    compileOnly 'com.plotsquared:PlotSquared-Core:6.0.6-SNAPSHOT'
+    compileOnly 'com.onarandombox.multiversecore:Multiverse-Core:4.2.2'
+    compileOnly 'org.projectlombok:lombok:1.18.20'
     annotationProcessor 'org.projectlombok:lombok:1.18.20'
+    implementation 'org.bstats:bstats-bukkit:2.2.+'
+}
+
+shadowJar {
+    // 过滤未使用的依赖
+    minimize()
+    // bstats重定向
+    relocate ('org.bstats', 'github.saukiya.propaganda.bstats')
+}
+
+processResources {
+    expand(version: version)
 }
