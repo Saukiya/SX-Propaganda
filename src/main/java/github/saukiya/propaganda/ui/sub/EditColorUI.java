@@ -9,7 +9,7 @@ import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.block.Sign;
 import org.bukkit.block.data.type.WallSign;
-import org.bukkit.craftbukkit.v1_19_R3.block.CraftSign;
+import org.bukkit.craftbukkit.v1_19_R2.block.CraftSign;
 import org.bukkit.entity.Player;
 
 import java.util.stream.IntStream;
