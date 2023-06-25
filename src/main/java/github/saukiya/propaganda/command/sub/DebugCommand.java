@@ -34,7 +34,7 @@ public class DebugCommand extends SubCommand implements Listener {
     @EventHandler
     void on(PlayerInteractEvent event) {
         Player player = event.getPlayer();
-        if (this.debug && event.hasBlock() && event.getAction().equals(Action.RIGHT_CLICK_BLOCK)) {
+        if (this.debug && player.isOp() && event.hasBlock() && event.getAction().equals(Action.RIGHT_CLICK_BLOCK)) {
             Location loc = Config.getSign(event.getClickedBlock().getLocation(), event.getBlockFace());
             if (loc != null) {
                 Block block = loc.getBlock();
