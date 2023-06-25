@@ -1,7 +1,7 @@
 package github.saukiya.propaganda.util;
 
 import github.saukiya.propaganda.Propaganda;
-import me.clip.placeholderapi.PlaceholderAPI;
+import github.saukiya.propaganda.helper.PlaceholderHelper;
 import org.bukkit.Bukkit;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
@@ -12,7 +12,7 @@ import java.util.List;
 public class CommandUtil {
     public static void onPlayCommand(Player player, List<String> commandList) {
         int delay = 0;
-        commandList = PlaceholderAPI.setPlaceholders(player, commandList);
+        commandList = PlaceholderHelper.setPlaceholders(player, commandList);
         Iterator var3 = commandList.iterator();
 
         while (var3.hasNext()) {

@@ -2,11 +2,11 @@ package github.saukiya.propaganda;
 
 import github.saukiya.propaganda.command.MainCommand;
 import github.saukiya.propaganda.data.DataManager;
+import github.saukiya.propaganda.helper.PlaceholderHelper;
 import github.saukiya.propaganda.listener.OnListener;
 import github.saukiya.propaganda.util.Config;
 import github.saukiya.propaganda.util.Message;
 import github.saukiya.propaganda.util.MoneyUtil;
-import github.saukiya.propaganda.util.PlaceholdersUtil;
 import lombok.Getter;
 import org.bstats.bukkit.Metrics;
 import org.bukkit.Bukkit;
@@ -33,17 +33,17 @@ public class Propaganda extends JavaPlugin {
     }
 
     public void onEnable() {
-        Metrics metrics = new Metrics(this, 12019);
+        new Metrics(this, 12019);
         long oldTimes = System.currentTimeMillis();
         String version = Bukkit.getBukkitVersion().split("-")[0];
         this.getLogger().info("ServerVersion: " + version);
         dataManager = new DataManager();
-        PlaceholdersUtil.setup();
+        PlaceholderHelper.setup(this);
         MoneyUtil.setup();
         Bukkit.getPluginManager().registerEvents(new OnListener(), this);
         mainCommand.setup("sxpropaganda");
         this.getLogger().info("Loading Time: " + (System.currentTimeMillis() - oldTimes) + " ms");
-        this.getLogger().info("Author: Saukiya QQ: 1940208750");
+        this.getLogger().info("Author: Saukiya");
     }
 
     public void onDisable() {

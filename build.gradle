@@ -6,6 +6,9 @@ plugins {
 group 'github.saukiya'
 version '1.0-SNAPSHOT'
 
+sourceCompatibility = JavaVersion.VERSION_17
+targetCompatibility = JavaVersion.VERSION_17
+
 repositories {
     mavenCentral()
 
@@ -18,7 +21,7 @@ repositories {
     // bstats-bukkit
     maven {url "https://repo.codemc.org/repository/maven-public"}
     // PlotSquared
-    maven {url "https://mvn.intellectualsites.com/content/groups/public/"}
+    maven {url "https://repo.papermc.io/repository/maven-public/"}
     // WorldEdit
     maven {url "https://maven.enginehub.org/repo/"}
     // Multiverse-Core
@@ -30,7 +33,6 @@ dependencies {
     compileOnly 'org.spigotmc:spigot-api:1.17-R0.1-SNAPSHOT'
     compileOnly 'com.github.MilkBowl:VaultAPI:1.+'
     compileOnly 'com.github.PlaceholderAPI:PlaceholderAPI:2.10.9'
-    compileOnly 'com.plotsquared:PlotSquared-Core:6.0.6-SNAPSHOT'
     compileOnly 'com.onarandombox.multiversecore:Multiverse-Core:4.2.2'
     compileOnly 'org.projectlombok:lombok:1.18.20'
     annotationProcessor 'org.projectlombok:lombok:1.18.20'
