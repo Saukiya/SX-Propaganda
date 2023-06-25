@@ -30,6 +30,7 @@ repositories {
 
 dependencies {
     compileOnly fileTree('lib')
+    compileOnly fileTree('lib-version/spigot-1.19.4')
     compileOnly 'org.spigotmc:spigot-api:1.17-R0.1-SNAPSHOT'
     compileOnly 'com.github.MilkBowl:VaultAPI:1.+'
     compileOnly 'com.github.PlaceholderAPI:PlaceholderAPI:2.10.9'
@@ -44,6 +45,13 @@ shadowJar {
     minimize()
     // bstats重定向
     relocate ('org.bstats', 'github.saukiya.propaganda.bstats')
+}
+
+//构建
+task buildLastJar(type: Copy) {
+    dependsOn shadowJar
+    from shadowJar.archiveFile.get().asFile.path
+    into("$rootDir").rename { "${project.name}-Latest.jar" }
 }
 
 processResources {

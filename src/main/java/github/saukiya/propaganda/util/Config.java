@@ -28,8 +28,8 @@ public class Config {
         config = YamlConfiguration.loadConfiguration(file);
         boxList.clear();
 
-        for (String key : config.getKeys(false)) {
-            boxList.add(new Box(config.getConfigurationSection(key)));
+        for (String key : config.getConfigurationSection("list").getKeys(false)) {
+            boxList.add(new Box(config.getConfigurationSection("list." + key)));
         }
 
     }

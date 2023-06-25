@@ -1,24 +1,29 @@
-ggp1:
-  world: foxcraft
-  x: [17, 26]
-  y: [64, 65]
-  z: [6, 6]
-  face: NORTH
-ggp2:
-  world: foxcraft
-  x: [40, 49]
-  y: [64, 65]
-  z: [6, 6]
-  face: NORTH
-ggp3:
-  world: foxcraft
-  x: [17, 26]
-  y: [64, 65]
-  z: [-5, -5]
-  face: SOUTH
-ggp4:
-  world: foxcraft
-  x: [40, 49]
-  y: [64, 65]
-  z: [-5, -5]
-  face: SOUTH
+list:
+  #名字随意
+  ggp1:
+    #所在地图
+    world: foxcraft
+    #坐标范围
+    x: [17, 26]
+    y: [64, 65]
+    z: [6, 6]
+    #木牌朝向
+    face: NORTH
+  ggp2:
+    world: foxcraft
+    x: [40, 49]
+    y: [64, 65]
+    z: [6, 6]
+    face: NORTH
+  ggp3:
+    world: foxcraft
+    x: [17, 26]
+    y: [64, 65]
+    z: [-5, -5]
+    face: SOUTH
+  ggp4:
+    world: foxcraft
+    x: [40, 49]
+    y: [64, 65]
+    z: [-5, -5]
+    face: SOUTH
