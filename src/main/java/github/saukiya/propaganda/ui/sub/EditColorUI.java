@@ -3,13 +3,14 @@ package github.saukiya.propaganda.ui.sub;
 import github.saukiya.propaganda.Propaganda;
 import github.saukiya.propaganda.data.Data;
 import github.saukiya.propaganda.ui.UIHolder;
+import github.saukiya.propaganda.util.SignUtil;
 import net.minecraft.nbt.NBTTagCompound;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.block.Sign;
 import org.bukkit.block.data.type.WallSign;
-import org.bukkit.craftbukkit.v1_19_R2.block.CraftSign;
+import org.bukkit.craftbukkit.v1_20_R1.block.CraftSign;
 import org.bukkit.entity.Player;
 
 import java.util.stream.IntStream;
@@ -33,15 +34,15 @@ public class EditColorUI extends UIHolder {
                     WallSign wallSign = (WallSign) block.getBlockData();
                     wallSign.setFacing(data.getFace());
                     block.setBlockData(wallSign);
-                    save(player, snapshot, (Sign) block.getState());
+                    SignUtil.save(player, snapshot, (Sign) block.getState());
                     new EditUI(player, data).open();
                 } else {
                     block.setType(material);
-                    WallSign wallSignx = (WallSign) block.getBlockData();
-                    wallSignx.setFacing(data.getFace());
-                    block.setBlockData(wallSignx);
+                    WallSign wallSign = (WallSign) block.getBlockData();
+                    wallSign.setFacing(data.getFace());
+                    block.setBlockData(wallSign);
                     Propaganda.getDataManager().getMap().put(data.getLoc(), data);
-                    Bukkit.getScheduler().runTaskLater(Propaganda.getInst(), () -> UIHolder.edit(player, (Sign) block.getState()), 5L);
+                    Bukkit.getScheduler().runTaskLater(Propaganda.getInst(), () -> SignUtil.edit(player, (Sign) block.getState()), 5L);
                 }
 
             }));

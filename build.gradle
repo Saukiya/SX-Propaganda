@@ -30,8 +30,8 @@ repositories {
 
 dependencies {
     compileOnly fileTree('lib')
-    compileOnly fileTree('lib-version/spigot-1.19.3')
-    compileOnly 'org.spigotmc:spigot-api:1.17-R0.1-SNAPSHOT'
+    compileOnly fileTree('lib-version/spigot-1.20.1')
+    compileOnly 'org.spigotmc:spigot-api:1.20-R0.1-SNAPSHOT'
     compileOnly 'com.github.MilkBowl:VaultAPI:1.+'
     compileOnly 'com.github.PlaceholderAPI:PlaceholderAPI:2.10.9'
     compileOnly 'com.onarandombox.multiversecore:Multiverse-Core:4.2.2'

@@ -4,13 +4,14 @@ import github.saukiya.propaganda.command.SenderType;
 import github.saukiya.propaganda.command.SubCommand;
 import github.saukiya.propaganda.ui.UIHolder;
 import github.saukiya.propaganda.util.Config;
+import github.saukiya.propaganda.util.SignUtil;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.block.Sign;
 import org.bukkit.command.CommandSender;
-import org.bukkit.craftbukkit.v1_19_R2.block.CraftSign;
-import org.bukkit.craftbukkit.v1_19_R2.block.impl.CraftWallSign;
+import org.bukkit.craftbukkit.v1_20_R1.block.CraftSign;
+import org.bukkit.craftbukkit.v1_20_R1.block.impl.CraftWallSign;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -41,7 +42,7 @@ public class DebugCommand extends SubCommand implements Listener {
                 player.sendMessage(" §7" + block.getType() + " - " + block.getState().getClass().getSimpleName() + " - " + block.getBlockData().getClass().getSimpleName());
                 if (player.isSneaking()) {
                     if (loc.getBlock().getState() instanceof CraftSign) {
-                        UIHolder.edit(player, (Sign) loc.getBlock().getState());
+                        SignUtil.edit(player, (Sign) loc.getBlock().getState());
                     } else {
                         block.setType(Material.OAK_WALL_SIGN);
                         CraftWallSign craftWallSign = (CraftWallSign) block.getBlockData();

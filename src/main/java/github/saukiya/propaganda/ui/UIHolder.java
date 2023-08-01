@@ -10,9 +10,9 @@ import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.Sound;
 import org.bukkit.block.Sign;
-import org.bukkit.craftbukkit.v1_19_R2.CraftWorld;
-import org.bukkit.craftbukkit.v1_19_R2.block.CraftSign;
-import org.bukkit.craftbukkit.v1_19_R2.entity.CraftPlayer;
+import org.bukkit.craftbukkit.v1_20_R1.CraftWorld;
+import org.bukkit.craftbukkit.v1_20_R1.block.CraftSign;
+import org.bukkit.craftbukkit.v1_20_R1.entity.CraftPlayer;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.Inventory;
@@ -45,34 +45,6 @@ public abstract class UIHolder implements InventoryHolder {
         this.data = data;
         this.size = size;
         this.title = title.replace('&', '§');
-    }
-
-    public static void edit(Player player, Sign sign) {
-        CraftPlayer cPlayer = (CraftPlayer) player;
-        CraftSign cSign = (CraftSign) sign;
-        System.out.println("cSign: " + cSign.getSnapshotNBT());
-//      TileEntitySign tileSign = new TileEntitySign();
-        TileEntitySign tileSign = new TileEntitySign(cSign.getPosition(), cSign.getHandle());
-        tileSign.a(cSign.getSnapshotNBT());
-//      tileSign.isEditable = true;
-        tileSign.h = true;
-//      WorldServer worldServer = (WorldServer)cPlayer.getHandle().server.worldServer.get(cPlayer.getHandle().dimension);
-        WorldServer worldServer = ((CraftWorld) player.getWorld()).getHandle();
-//      worldServer.setTileEntity(cSign.getPosition(), tileSign);
-        worldServer.a(tileSign);
-        cPlayer.getHandle().a(tileSign);
-    }
-
-    public static void save(Player player, NBTTagCompound snapshot, Sign sign) {
-//        CraftPlayer cPlayer = (CraftPlayer) player;
-        CraftSign cSign = (CraftSign) sign;
-//      TileEntitySign tileSign = new TileEntitySign();
-        TileEntitySign tileSign = new TileEntitySign(cSign.getPosition(), cSign.getHandle());
-        tileSign.a(snapshot);
-//      WorldServer worldServer = (WorldServer)cPlayer.getHandle().server.worldServer.get(cPlayer.getHandle().dimension);
-        WorldServer worldServer = ((CraftWorld) player.getWorld()).getHandle();
-//      worldServer.setTileEntity(cSign.getPosition(), tileSign);
-        worldServer.a(tileSign);
     }
 
     public void open() {

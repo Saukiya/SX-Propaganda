@@ -16,6 +16,7 @@ import org.bukkit.Particle;
 import org.bukkit.Sound;
 import org.bukkit.block.Block;
 import org.bukkit.block.Sign;
+import org.bukkit.block.data.type.WallSign;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -40,6 +41,8 @@ public class OnListener implements Listener {
         Block block = event.getBlock();
         Data data = Propaganda.getDataManager().getMap().get(block.getLocation());
         if (data != null) {
+            Sign sign = (Sign) block.getState();
+            sign.setWaxed(true);
             if (data.getEndTime() == 0L) {
                 data.updateTime();
                 Propaganda.getDataManager().saveData();

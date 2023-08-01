@@ -3,6 +3,7 @@ package github.saukiya.propaganda.ui.sub;
 import github.saukiya.propaganda.Propaganda;
 import github.saukiya.propaganda.data.Data;
 import github.saukiya.propaganda.ui.UIHolder;
+import github.saukiya.propaganda.util.SignUtil;
 import github.saukiya.propaganda.util.TimeUtil;
 import org.bukkit.Material;
 import org.bukkit.Particle;
@@ -26,7 +27,7 @@ public class EditUI extends UIHolder {
                 .process(() -> new EditColorUI(player, data).open()));
         this.map.put(23, new Button(Material.PAPER)
                 .name("修改木牌信息")
-                .process(() -> edit(player, (Sign) data.getLoc().getBlock().getState())));
+                .process(() -> SignUtil.edit(player, (Sign) data.getLoc().getBlock().getState())));
         this.map.put(25, new Button(Material.BARRIER)
                 .name("&c删除宣传牌")
                 .process(() -> {
